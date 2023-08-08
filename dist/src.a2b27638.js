@@ -203,7 +203,10 @@ var onClickAdd = function onClickAdd() {
   var deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", function () {
-    alert("削除");
+    // 押された削除ボタンの親タグ（div）を未完了リストから削除
+    var deleteTarget = deleteButton.parentNode;
+    document.getElementById("incomplete-list").removeChild(deleteTarget);
+    // alert("削除");
   });
 
   // div タグのっこようそに  li 要素を追加する
