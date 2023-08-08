@@ -176,7 +176,34 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
-document.getElementById("app").innerHTML = "\n<h1>Hello Vanilla!</h1>\n<div>\n  We use the same configuration as Parcel to bundle this sandbox, you can find more\n  info about Parcel \n  <a href=\"https://parceljs.org\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.\n</div>\n";
+var onClickAdd = function onClickAdd() {
+  // alert();
+  // form の値を取得
+  var inputText = document.getElementById("add-text").value;
+
+  // 追加ボタンが押されたら、form 内のテキストを空にする
+  document.getElementById("add-text").value = "";
+  alert(inputText);
+
+  // リスト表示するためのDOMを作成する
+  // div タグを生成
+  var div = document.createElement("div");
+  div.className = "list-row";
+
+  // li タグを生成
+  var li = document.createElement("li");
+  li.innerText = inputText;
+
+  // div タグのっこようそに  li 要素を追加する
+  div.appendChild(li);
+  console.log(div);
+
+  // 未完了のリストにタスクを追加
+  document.getElementById("incomplete-list").appendChild(div);
+};
+document.getElementById("add-button").addEventListener("click", function () {
+  return onClickAdd();
+});
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
