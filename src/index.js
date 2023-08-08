@@ -18,8 +18,23 @@ const onClickAdd = () => {
   const li = document.createElement("li");
   li.innerText = inputText;
 
+  // 完了ボタンと削除ボタンを作成
+  const completeButton = document.createElement("button");
+  completeButton.innerText = "完了";
+  completeButton.addEventListener("click", () => {
+    alert("完了");
+  });
+
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "削除";
+  deleteButton.addEventListener("click", () => {
+    alert("削除");
+  });
+
   // div タグのっこようそに  li 要素を追加する
   div.appendChild(li);
+  div.appendChild(completeButton);
+  div.appendChild(deleteButton);
   console.log(div);
 
   // 未完了のリストにタスクを追加
