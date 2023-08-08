@@ -198,7 +198,32 @@ var onClickAdd = function onClickAdd() {
   var completeButton = document.createElement("button");
   completeButton.innerText = "完了";
   completeButton.addEventListener("click", function () {
-    alert("完了");
+    // alert("完了");
+    // 未完了エリアから削除
+    var deleteTarget = completeButton.parentNode;
+    console.log(deleteTarget);
+    document.getElementById("incomplete-list").removeChild(deleteTarget);
+
+    // 完了エリアに移すためのDOM を生成
+    var completeDiv = document.createElement("div");
+    completeDiv.className = "list-row";
+
+    // li タグを生成
+    var completeLi = document.createElement("li");
+    completeLi.innerText = inputText;
+
+    // 戻すボタンを生成
+    var backButton = document.createElement("button");
+    backButton.innerText = "戻す";
+    backButton.addEventListener("click", function () {
+      alert("戻す");
+    });
+    completeDiv.appendChild(completeLi);
+    completeDiv.appendChild(backButton);
+    console.log(completeDiv);
+
+    // 完了したTODO にタスクを追加
+    document.getElementById("complete-list").appendChild(completeDiv);
   });
   var deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
